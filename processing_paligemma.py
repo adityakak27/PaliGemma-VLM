@@ -37,6 +37,12 @@ def normalize(
     image = (image - mean) / std
     return image
 
+def add_image_tokens_to_prompt(prefix_prompt, bos_token, image_seq_len, image_token):
+    #input text is tokenzied normally, bos token and newline character is added, as newline is a essential part of the training for the model, apparently.
+    #tokenized text is also prefixed with a fixed number of <image> tokens (^ ofcourse, \n and whitespaces and everything is tokenized separately)
+
+    #THIS IS THE HUGGINGFACE IMPLEMENTATION (thank you hf <3)
+    return f"{image_token * image_seq_len}{bos_token}{prefix_prompt}\n"
 
 def process_images(
         image : List[Image.Image],
@@ -45,7 +51,7 @@ def process_images(
         rescale_factor : float = None,
         image_mean : Optional[Union[float, List[float]]] = None,
         image_std : Optional[Union[float, List[float]]] = None,
-) -> List[np.ndarray]:
+    ) -> List[np.ndarray]:
     height, width = size[0], size[1]
     images = [resize(image = image, size = (height, width), resample = resample) for image in images]
 
@@ -133,4 +139,3 @@ class PaliGemmaProcessor:
         return_data = {"pixel_values" : pixel_values , **inputs}
 
         return return_data
-
