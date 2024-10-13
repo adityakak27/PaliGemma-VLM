@@ -13,3 +13,6 @@ Other Resources:
 4).https://arxiv.org/pdf/2104.09864
 
 5).https://medium.com/@jinoo/a-simple-example-of-attention-masking-in-transformer-decoder-a6c66757bc7d
+
+------------------------------------------------------------------------------------------------------------------------------------------
+All the notes used for explanation are in the main repository, also linked here: https://github.com/hkproj/pytorch-paligemma/blob/main/notes/
