@@ -11,3 +11,5 @@ Other Resources:
 3).https://huggingface.co/google/paligemma-3b-pt-224
 
 4).https://arxiv.org/pdf/2104.09864
+
+5).https://medium.com/@jinoo/a-simple-example-of-attention-masking-in-transformer-decoder-a6c66757bc7d
