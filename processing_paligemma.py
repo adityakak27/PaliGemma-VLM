@@ -45,7 +45,7 @@ def add_image_tokens_to_prompt(prefix_prompt, bos_token, image_seq_len, image_to
     return f"{image_token * image_seq_len}{bos_token}{prefix_prompt}\n"
 
 def process_images(
-        image : List[Image.Image],
+        images : List[Image.Image],
         size : Dict[str, int] = None,
         resample : Image.Resampling = None,
         rescale_factor : float = None,
