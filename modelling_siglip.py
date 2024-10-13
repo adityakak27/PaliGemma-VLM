@@ -50,8 +50,8 @@ class SigLipVisionEmbeddings(nn.Module):
         self.position_embedding = nn.Embedding(self.num_positions, self.embd_dim)
         self.register_buffer(
             "position_ids",
-            torch.arange(self.num_positions).expand((-1, 1)),
-            persistent = False,
+            torch.arange(self.num_positions).expand((1, -1)),
+            persistent=False,
         )
 
     def forward(self, pixel_values = torch.FloatTensor) -> torch.Tensor:
@@ -190,6 +190,9 @@ class SigLipMLP(nn.Module):
         hidden_states = self.fc2(hidden_states)
 
         return hidden_states
+
+
+
 
 
 class SigLipVisionTransformer(nn.Module):
